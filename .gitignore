@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# PHP dependencies
+src/vendor/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Editor
+.vscode/settings.json
