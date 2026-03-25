@@ -9,7 +9,7 @@ Currently in initial development. Planned features coming soon!
 ## Tech Stack
 
 - **Backend:** PHP 8.3 with Apache
-- **Frontend:** Tailwind CSS 3.4
+- **Frontend:** Tailwind CSS 3.4, GSAP (GreenSock Animation Platform)
 - **Database:** MySQL 8.0
 - **Development:** Docker, Docker Compose, VS Code DevContainers
 - **Extensions:** Intelephense, Database Client, Thunder Client, Prettier
@@ -65,11 +65,16 @@ This project uses Tailwind CSS for styling.
 
 #### Installing Dependencies
 
+Navigate to the `src/` directory and install dependencies:
+
 ```bash
+cd src
 npm install
 ```
 
 #### Building CSS
+
+From the `src/` directory, run:
 
 ```bash
 # Build CSS once
@@ -80,6 +85,10 @@ npm run watch:css
 ```
 
 The Tailwind configuration watches all PHP, HTML, and JS files in the `src/` directory for class names.
+
+### GSAP Animations
+
+The project includes GSAP (GreenSock Animation Platform) via CDN for smooth animations and transitions. GSAP is loaded in the base layout and available throughout the application.
 
 ## Development Environment
 
@@ -124,10 +133,13 @@ animdash/
 │   ├── css/              # CSS files
 │   │   ├── input.css     # Tailwind input
 │   │   └── output.css    # Compiled CSS (gitignored)
-│   └── index.php         # Entry point
+│   ├── layouts/          # Reusable layout templates
+│   │   └── base.php      # Base HTML layout with GSAP
+│   ├── index.php         # Entry point
+│   ├── tailwind-config.js # Tailwind CSS configuration
+│   ├── package.json      # Node.js dependencies & scripts
+│   └── package-lock.json # Dependency lock file (gitignored)
 ├── docker-compose.yml    # Multi-container orchestration
-├── tailwind-config.js    # Tailwind CSS configuration
-├── package.json          # Node.js dependencies & scripts
 ├── .env.example          # Environment variables template
 ├── .env                  # Your local environment (gitignored)
 ├── .gitignore            # Git ignore rules
@@ -148,7 +160,9 @@ animdash/
 
 - All application code lives in the `src/` directory
 - The `src/` directory is mapped to `/var/www/html` in the Apache container
-- Run `npm run watch:css` to automatically rebuild CSS on changes
+- Frontend dependencies and build tools are located in `src/` (run `npm` commands from there)
+- Run `npm run watch:css` from the `src/` directory to automatically rebuild CSS on changes
+- Use the layout system in `src/layouts/` for consistent page structure
 - PHP files are automatically formatted on save using Intelephense
 - Use Thunder Client for API testing
 - Use Database Client or Adminer for database management
