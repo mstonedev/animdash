@@ -91,10 +91,12 @@ The DevContainer includes these extensions:
 animdash/
 ├── .devcontainer/          # DevContainer configuration
 │   ├── devcontainer.json  # VS Code settings & extensions
-│   ├── Dockerfile         # PHP 8.3-Apache container
-│   └── docker-compose.yml # Multi-container orchestration
+│   └── Dockerfile         # PHP 8.3-Apache container
 ├── src/                   # Application source code
+│   ├── config/           # Configuration files
+│   │   └── db.php        # Database connection
 │   └── index.php         # Entry point
+├── docker-compose.yml    # Multi-container orchestration
 ├── .env.example          # Environment variables template
 ├── .env                  # Your local environment (gitignored)
 ├── .gitignore            # Git ignore rules
@@ -115,7 +117,7 @@ animdash/
 
 - All application code lives in the `src/` directory
 - The `src/` directory is mapped to `/var/www/html` in the Apache container
-- PHP files are automatically formatted on save using Prettier
+- PHP files are automatically formatted on save using Intelephense
 - Use Thunder Client for API testing
 - Use Database Client or Adminer for database management
 - Apache `mod_rewrite` is enabled for URL rewriting
