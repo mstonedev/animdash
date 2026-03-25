@@ -12,3 +12,7 @@ src/vendor/
 
 # Editor
 .vscode/settings.json
+
+# Build Artifact
+src/css/output.css
+node_modules/
