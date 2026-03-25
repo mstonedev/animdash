@@ -1,6 +1,8 @@
 services:
   app:
-    image: php:8.3-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ../src:/var/www/html
     ports:
@@ -15,9 +17,11 @@ services:
 
   db:
     image: mysql:8.0
+    command: --host-cache-size=0
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: animdash
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      TZ: America/New_York
     volumes:
       - db_data:/var/lib/mysql
     ports:

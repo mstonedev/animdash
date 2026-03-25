@@ -11,13 +11,11 @@
         "cweijan.vscode-database-client2",
         "rangav.vscode-thunder-client",
         "ms-azuretools.vscode-docker",
-        "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss"
+        "esbenp.prettier-vscode"
       ],
       "settings": {
         "php.validate.executablePath": "/usr/local/bin/php",
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "[php]": {
           "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
         }
@@ -25,6 +23,5 @@
     }
   },
 
-  "postCreateCommand": "docker-php-ext-install pdo pdo_mysql && a2enmod rewrite && service apache2 restart",
   "forwardPorts": [8080, 8081, 3306]
 }
