@@ -29,7 +29,7 @@ Clone the repository and set up your environment variables:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/mstonedev/animdash.git
 cd animdash
 
 # Copy the environment template
@@ -53,7 +53,7 @@ DB_NAME=animdash
 2. When prompted, click **"Reopen in Container"**
    - Or use the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and select **"Dev Containers: Reopen in Container"**
 3. Wait for the containers to build and start (first time may take a few minutes)
-4. Once ready, access the application at http://localhost:8080
+4. Once ready, access the application at <http://localhost:8080>
 
 ## Development Environment
 
@@ -61,13 +61,13 @@ DB_NAME=animdash
 
 | Service | URL | Description |
 |---------|-----|-------------|
-| **Web Application** | http://localhost:8080 | Main PHP application |
-| **Adminer** | http://localhost:8081 | Database management UI |
+| **Web Application** | <http://localhost:8080> | Main PHP application |
+| **Adminer** | <http://localhost:8081> | Database management UI |
 | **MySQL Database** | localhost:3306 | Direct database connection |
 
 ### Accessing the Database via Adminer
 
-Navigate to http://localhost:8081 and use these credentials:
+Navigate to <http://localhost:8081> and use these credentials:
 
 - **System:** MySQL
 - **Server:** `db`
@@ -107,7 +107,7 @@ animdash/
 - **Timezone:** America/New_York
 - **Persistent Storage:** Data is stored in a Docker volume named `db_data`
 - **Access Methods:**
-  - Adminer UI at http://localhost:8081
+  - Adminer UI at <http://localhost:8081>
   - Database Client extension in VS Code
   - Direct connection at localhost:3306
 
@@ -123,10 +123,12 @@ animdash/
 ## Troubleshooting
 
 ### Container Won't Start
+
 - Ensure Docker Desktop is running
 - Check Docker Desktop for any error messages
 
 ### Port Conflicts
+
 If you get port conflict errors, check if ports 8080, 8081, or 3306 are already in use:
 
 ```bash
@@ -142,16 +144,20 @@ netstat -ano | findstr :3306
 ```
 
 ### Database Connection Errors
+
 - Verify that the `.env` file exists and contains the correct credentials
 - Ensure the `db` service is running in Docker
 - Check Docker logs: `docker compose logs db`
 
 ### Extensions Not Loading
+
 Rebuild the container from the Command Palette:
+
 - Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
 - Select **"Dev Containers: Rebuild Container"**
 
 ### Changes Not Appearing
+
 - Refresh your browser (hard refresh: `Cmd+Shift+R` / `Ctrl+Shift+F5`)
 - Check file permissions in the container
 - Verify the file is saved in the `src/` directory
@@ -162,4 +168,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+License information to be determined.
