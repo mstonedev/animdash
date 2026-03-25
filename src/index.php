@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimDash</title>
-    <link rel="stylesheet" href="/css/output.css">
-</head>
-<body class="bg-gray-950 text-white min-h-screen flex items-center justify-center">
+<?php
+$title = 'AnimDash';
 
-    <div id="hero" class="text-4xl font-bold opacity-0">
-        AnimDash 🚀
-    </div>
+ob_start();
+?>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-    <script>
-        gsap.to("#hero", { opacity: 1, y: -20, duration: 1, ease: "power2.out" });
-    </script>
+<div id="hero" class="text-4xl font-bold opacity-0">
+    AnimDash 🚀
+</div>
 
-</body>
-</html>
+<script>
+    gsap.to("#hero", {
+        opacity: 1,
+        y: -20,
+        duration: 2,
+        ease: "power2.out"
+    });
+</script>
+
+<?php
+$content = ob_get_clean();
+require_once __DIR__ . '/layouts/base.php';

@@ -1,18 +1,40 @@
 # Secrets
 .env
+.env.local
+.env.*.local
 
 # PHP dependencies
 src/vendor/
 
+# Node dependencies
+node_modules/
+src/node_modules/
+
 # macOS
 .DS_Store
+
+# Windows
+Thumbs.db
 
 # Logs
 *.log
 
 # Editor
-.vscode/settings.json
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Build Artifact
+# Build artifacts
 src/css/output.css
-node_modules/
+dist/
+build/
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Test coverage
+coverage/
+.nyc_output/
