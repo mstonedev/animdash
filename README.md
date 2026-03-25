@@ -9,6 +9,7 @@ Currently in initial development. Planned features coming soon!
 ## Tech Stack
 
 - **Backend:** PHP 8.3 with Apache
+- **Frontend:** Tailwind CSS 3.4
 - **Database:** MySQL 8.0
 - **Development:** Docker, Docker Compose, VS Code DevContainers
 - **Extensions:** Intelephense, Database Client, Thunder Client, Prettier
@@ -20,6 +21,7 @@ Before you begin, ensure you have the following installed:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (includes Docker Compose)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code
+- [Node.js](https://nodejs.org/) (for Tailwind CSS compilation)
 
 ## Getting Started
 
@@ -54,6 +56,30 @@ DB_NAME=animdash
    - Or use the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and select **"Dev Containers: Reopen in Container"**
 3. Wait for the containers to build and start (first time may take a few minutes)
 4. Once ready, access the application at <http://localhost:8080>
+
+## Frontend Development
+
+### CSS with Tailwind
+
+This project uses Tailwind CSS for styling.
+
+#### Installing Dependencies
+
+```bash
+npm install
+```
+
+#### Building CSS
+
+```bash
+# Build CSS once
+npm run build:css
+
+# Watch for changes and rebuild automatically
+npm run watch:css
+```
+
+The Tailwind configuration watches all PHP, HTML, and JS files in the `src/` directory for class names.
 
 ## Development Environment
 
@@ -95,8 +121,13 @@ animdash/
 ├── src/                   # Application source code
 │   ├── config/           # Configuration files
 │   │   └── db.php        # Database connection
+│   ├── css/              # CSS files
+│   │   ├── input.css     # Tailwind input
+│   │   └── output.css    # Compiled CSS (gitignored)
 │   └── index.php         # Entry point
 ├── docker-compose.yml    # Multi-container orchestration
+├── tailwind-config.js    # Tailwind CSS configuration
+├── package.json          # Node.js dependencies & scripts
 ├── .env.example          # Environment variables template
 ├── .env                  # Your local environment (gitignored)
 ├── .gitignore            # Git ignore rules
@@ -117,6 +148,7 @@ animdash/
 
 - All application code lives in the `src/` directory
 - The `src/` directory is mapped to `/var/www/html` in the Apache container
+- Run `npm run watch:css` to automatically rebuild CSS on changes
 - PHP files are automatically formatted on save using Intelephense
 - Use Thunder Client for API testing
 - Use Database Client or Adminer for database management
