@@ -6,5 +6,6 @@ $router = new Router();
 $router->get('/', 'home.php');
 $router->get('/weather', 'weather.php');
 $router->get('/crypto', 'crypto.php');
+$router->get('/clock', 'clock.php');
 
 $router->resolve($_SERVER['REQUEST_URI']);
