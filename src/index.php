@@ -1,22 +1,10 @@
 <?php
-$title = 'AnimDash';
+require_once __DIR__ . '/core/Router.php';
 
-ob_start();
-?>
+$router = new Router();
 
-<div id="hero" class="text-4xl font-bold opacity-0">
-    AnimDash 🚀
-</div>
+$router->get('/', 'home.php');
+$router->get('/weather', 'weather.php');
+$router->get('/crypto', 'crypto.php');
 
-<script>
-    gsap.to("#hero", {
-        opacity: 1,
-        y: -20,
-        duration: 2,
-        ease: "power2.out"
-    });
-</script>
-
-<?php
-$content = ob_get_clean();
-require_once __DIR__ . '/layouts/base.php';
+$router->resolve($_SERVER['REQUEST_URI']);
